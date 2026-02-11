@@ -28,7 +28,7 @@ GreenBite is a React web application that allows users to search and explore veg
 - Netlify (deployment)
 
 
-📦 Features
+📦 Features:
 
 🔎 Search vegetarian recipes
 
@@ -46,7 +46,7 @@ GreenBite is a React web application that allows users to search and explore veg
 
 - Summary
 
--Instructions
+- Instructions
 
 ⚡ Loading and error handling states
 
@@ -114,17 +114,17 @@ Start2Impact – Web Developer Path
 
 It demonstrates:
 
-API integration
+- API integration
 
-State management with Context
+- State management with Context
 
-Routing
+- Routing
 
-Responsive design
+- Responsive design
 
-Production deployment
+- Production deployment
 
-Environment variable management
+- Environment variable management
 
 
 👩‍💻 Author
