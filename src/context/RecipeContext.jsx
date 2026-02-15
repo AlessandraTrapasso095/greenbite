@@ -2,6 +2,7 @@
 
 import { createContext, useState } from "react"; /* importo da react */
 import { searchVegetarianRecipes } from "../services/spoonacular"; /* importo da spoonacular */
+import { logError } from "../utils/logError"; /* helper per logging error */
 
 export const RecipeContext = createContext(); /* creo il context */
 
@@ -14,13 +15,19 @@ export function RecipeProvider({ children }) { /* esporto la funzione */
 
   async function searchRecipes() { /* lettura query, chiamata API e aggiorna recipes, loading e error */
     try {
-      setError(null); /* pulizia di eventuali errori */ 
+      if (!query.trim()) {  /* controllo se stringa vuota o solo spazi */
+        setError("Please enter a search term.");
+        setRecipes([]);
+        return; /* blocca la funzione */
+      }
+      
+      setError(null); /* pulizia di eventuali errori */
       setLoading(true); /* caricamento dati */
 
       const results = await searchVegetarianRecipes(query); /* richiesta http */
       setRecipes(results); /* array di ricette */
     } catch (err) { /* in caso di errore */
-      console.error(err);
+      logError(err, "RecipeContext.searchRecipes"); 
       setError("Something went wrong while fetching recipes."); /* esce questo */
       setRecipes([]);
     } finally {
@@ -32,7 +39,6 @@ export function RecipeProvider({ children }) { /* esporto la funzione */
     <RecipeContext.Provider
       value={{
         recipes,
-        setRecipes,
         query,
         setQuery,
         loading,
