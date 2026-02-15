@@ -61,8 +61,11 @@ GreenBite is a React web application that allows users to search and explore veg
 🧠 Project Structure
 src/
 │
-├── assets/ and public/ for favicon and logo             
-├── components/        
+├── assets/
+│
+├── components/
+│   ├── AsyncState.jsx
+│   ├── BackButton.jsx
 │   ├── Header.jsx
 │   ├── SearchBar.jsx
 │   ├── RecipeGrid.jsx
@@ -75,11 +78,16 @@ src/
 ├── context/
 │   └── RecipeContext.jsx
 │
+├── hooks/
+│   └── useRecipeDetail.js
+│
 ├── services/
 │   └── spoonacular.js
 │
+├── utils/
+│   └── logError.js
+│
 ├── styles/
-│   ├── App.css
 │   ├── Header.css
 │   ├── SearchBar.css
 │   ├── RecipeGrid.css
